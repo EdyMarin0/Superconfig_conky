@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="1000"
+   height="1000"
+   viewBox="0 0 1000 1000"
+   sodipodi:docname="drive_1.svg"
+   inkscape:export-filename="../icons/disk_1.png"
+   inkscape:export-xdpi="3.8399999"
+   inkscape:export-ydpi="3.8399999"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:export-bgcolor="#ffffff00"
+     inkscape:zoom="0.40478012"
+     inkscape:cx="374.27727"
+     inkscape:cy="564.50401"
+     inkscape:window-width="1920"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="1000"
+       height="1000"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <rect
+       style="fill:#00aa88;fill-opacity:1;stroke-width:359.988"
+       id="rect1"
+       width="1000"
+       height="1000"
+       x="0"
+       y="0"
+       ry="111.54173" />
+    <path
+       id="path1"
+       style="fill:#00ffcc;stroke-width:2.46547;fill-opacity:1"
+       d="M 500 150 A 350 350 0 0 0 150 500 A 350 350 0 0 0 500 850 A 350 350 0 0 0 850 500 A 350 350 0 0 0 500 150 z M 500 400 A 100 100 0 0 1 600 500 A 100 100 0 0 1 500 600 A 100 100 0 0 1 400 500 A 100 100 0 0 1 500 400 z " />
+    <path
+       sodipodi:type="star"
+       style="fill:#aaffee;fill-opacity:1;stroke-width:2.64567"
+       id="path2"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="181.67667"
+       sodipodi:cy="47.166061"
+       sodipodi:r1="168.0106"
+       sodipodi:r2="95.892227"
+       sodipodi:arg1="-0.77069334"
+       sodipodi:arg2="0.27650421"
+       inkscape:rounded="0"
+       inkscape:randomized="0.4"
+       d="M 281.40694,-104.01801 158.89585,175.40523 27.078817,6.2754318 Z"
+       inkscape:transform-center-x="19.407833"
+       inkscape:transform-center-y="30.146172"
+       transform="translate(127.52305,735.44115)" />
+  </g>
+</svg>
