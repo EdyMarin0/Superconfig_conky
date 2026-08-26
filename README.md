@@ -11,8 +11,8 @@ Alternatively run _conky -c ~/.config/conky/conky.conf_ to prevent any blur effe
 **NOTE**: some sensor names will differ from system to system. See "Configure it" section for how to remedy that.
 \
 ### 2. Automatic
-To enable automatic Conky launch at start-up/login, set _restart_conky.sh_ to autostart in your prefferd way.\
-**NOTE**: On KDE Plasma, the session restore setting duplicates Conky windows upun restart/restore. The _restart_conky.sh_ kills all existing Conky processes and launches a new one to fix this bug. If you have any other Conky processes running, they will have to be restarted after _restart_conky.sh_ runs.
+To enable automatic Conky launch at start-up/login, set _restart_conky.sh_ to autostart in your preferred way.\
+**NOTE**: On KDE Plasma, the session restore setting duplicates Conky windows upon restart/restore. The _restart_conky.sh_ kills all existing Conky processes and launches a new one to fix this bug. If you have any other Conky processes running, they will have to be restarted after _restart_conky.sh_ runs.
 
 ## Configure it
 ### 1. Main config
@@ -62,9 +62,16 @@ This theme is set up to change the icons displayed based on thresholds (except f
 The color of all of the elements can be changed from the _settings.lua_ file\
 \
 Currently _main_color_ and _accent_color_2_ are not used\
-The horizontal line separatior color is set by _accent_color_1_\
+The horizontal line separator color is set by _accent_color_1_\
 The color of the graphs (except CPU core graph) are set via _low_color_ and _high_color_.\
-The color of the CPU core graph is set via _graph_color_ for the bars and _graph_background_ for the shadow. Transpareny settings for the CPU core graph can be set via _graph_alpha_ (for the bars) and _graph_background_alpha_ (for the bar shadows).\
+The color of the CPU core graph is set via _graph_color_ for the bars and _graph_background_ for the shadow. Transparency settings for the CPU core graph can be set via _graph_alpha_ (for the bars) and _graph_background_alpha_ (for the bar shadows).\
 The color and transparency of the Conky window can be set via _window_color_ and _window_transparency_ respectively.\
 \
 All colors take 6 character hex codes (without the \#) unless otherwise stated. Please see the comments inside _settings.lua_ for valid ranges.
+
+### 4. Drives
+Up to 4 drives can be monitored at the same time. They do not have to be different drives (see bellow). Specify the number of drives to be monitored via _number_of_drives_ in _settings.lua_.
+
+Inside _settings.lua_ specify the name of the drive (in _drive_name_ 1 through 4) as reported by _lsblk_ (e.g. _nvme0n1_, _sda_ etc.) or similar tools and the folder path where the drive is mounted (such as '/' or '/mnt/data/' etc.)/
+The _drive_name_ dictates the drive to be monitored for reads & writes, while _drive_path_ selects the folder to be monitored for used & total space.\
+If you want two different folders of the same drive to be monitored for space, set the _drive_name_2_ (or 3/4) to the same name as _drive_name_1_, and specify the desired secondary folder to be monitored as _drive_path\_[2]_ (or 3/4).
