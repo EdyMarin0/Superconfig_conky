@@ -1,3 +1,13 @@
+--==================================
+--
+-- Superconfig_conky Settings
+--
+-- Version: 1.1
+--
+-- Creator: Edy Marin
+--
+--==================================
+
 local cfg = {
     -- placement
     monitor = 1, -- ID of the monitor on which to be displayed
@@ -20,19 +30,25 @@ local cfg = {
 
     -- Drives
     number_of_drives = 1, -- Select the number of drives to be displayed. Up to 4 maximum (hard coded. more drives require the code to be changed). Set to 0 to disable storage showing up
-    drive_name_1 = 'nvme0n1', -- Select the name of the drive to be monitored. Check for the specific name in your system ("sda" "nvme0n1")
-    drive_name_2 = '',
-    drive_name_3 = '',
-    drive_name_4 = '',
+    drive_name_1 = 'partuuid:0bc926b9-1ccb-421f-ba3a-e09298877969', -- Select the name of the drive to be monitored. Check for the specific name in your system ("sda" "nvme0n1"). Can accept labels ('label:PARTITION LABEL') or partuuid ('partuuid:YOUR PARTITION ID') formats for a more stable setup (device names can change on reboot)
+    drive_name_2 = 'nvme0n1', -- Example using drive name. Might change upon reboot
+    --drive_name_3 = 'label:Storage', -- Example using label. Not all drives/partitions have labels
+    drive_name_3 = 'nvme0n1',
+    drive_name_4 = 'nvme0n1',
 
     -- Drive paths
     -- Number of non-empty values have to match the number of drives selected above
     drive_path = {
         [1] = '/', -- mount point for drive 1. Examples: '/', '/home', '/mnt/data', '/run/media/username/DriveLabel'
-        [2] = '',
-        [3] = '',
-        [4] = '',
+        [2] = '/',
+        [3] = '/',
+        [4] = '/',
     },
+
+    -- Battery
+    display_battery_info = 1, -- Display battery info after the drives section. Any other value than '1' disables it
+    battery_id = 'BAT1', -- battery ID as found in /sys/class/power_supply/
+
     -- Icon variants
     icon_var = '1', -- icon variant id for the icons. 1 = background, 2 = no background. For custom icons follow the naming convention and add the icons to the "icons folder"
 
@@ -48,6 +64,7 @@ local cfg = {
     ram_threshold = 80, -- RAM use percentatge
     gpu_threshold = 80, -- GPU utilisation percentage
     gpu_temperature_threshold = 80, -- GPU temperature
+    battery_threshold = 20, -- Battery percent
 
     -- Conky window size
     window_x = 20, -- horizontal offset from edge. Set to zero when using '..._middle' position for true centering
@@ -82,6 +99,14 @@ local cfg = {
     graph_background = 'ffffff', -- color of the column shadow box. Not the colour of the entire graph background
     graph_alpha = 1, -- transparency of the columns. Valid range: 0 (transparent) - 1 (opaque)
     graph_background_alpha = 0.08, -- transparency of the column shadow box. Valid range: 0 (transparent) - 1 (opaque)
+
+    -- Lua graphs
+    -- CPU Cores graph
+    bar_height = 80, -- max height of the CPU core graph
+    bar_gap = 5, -- gap width between columns, in px
+
+    -- Battery percent graph
+    battery_graph_height = 20, -- Height of the battery percent bar. Shoul not excede icon height
 }
 -- Conky graph sizing
 cfg.graph_width = cfg.window_width - cfg.icon_width - cfg.icon_gap
@@ -90,10 +115,10 @@ cfg.graph_half_height = cfg.icon_height//2
 cfg.graph_half_width = (cfg.graph_width - cfg.graph_gap)//2
 cfg.graph_offset = -(cfg.line_height/2)
 
--- Lua column graph settings
-cfg.bar_height = 80 -- max height of the graph
-cfg.bar_gap = 5 -- gap width between columns, in px
+-- Lua position
 cfg.graph_position = cfg.icon_height + 4*cfg.line_height + cfg.graph_offset + cfg.horizontal_line_offset
+cfg.battery_graph_position_x = cfg.window_border_distance + cfg.icon_width + cfg.icon_gap
+cfg.battery_graph_position_y = 4*cfg.icon_height + 22*cfg.line_height + cfg.bar_height + 4*cfg.graph_offset + 5*cfg.horizontal_line_offset + cfg.number_of_drives*(5*cfg.line_height + cfg.icon_height + cfg.graph_offset + cfg.horizontal_line_offset) + cfg.window_border_distance + (cfg.icon_height - cfg.battery_graph_height)//2
 
 -- Lua graph colours conversion
 local colors = require 'scripts.colors'
@@ -111,4 +136,5 @@ cfg.drive_icon_y = {
     [3] = 6*cfg.icon_height + 32*cfg.line_height + cfg.bar_height + 6*cfg.graph_offset + 7*cfg.horizontal_line_offset,
     [4] = 7*cfg.icon_height + 37*cfg.line_height + cfg.bar_height + 7*cfg.graph_offset + 8*cfg.horizontal_line_offset,
 }
+cfg.battery_icon_y = 4*cfg.icon_height + 22*cfg.line_height + cfg.bar_height + 4*cfg.graph_offset + 5*cfg.horizontal_line_offset + cfg.number_of_drives*(5*cfg.line_height + cfg.icon_height + cfg.graph_offset + cfg.horizontal_line_offset)
 return cfg
