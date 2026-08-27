@@ -49,6 +49,11 @@ ram_high_X.png\
 temp_low_X.png\
 temp_high_X.png\
 \
+<ins>For Battery:</ins>
+
+battery_low_X.png\
+battery_high_X.png\
+\
 <ins>For Drives:</ins>
 
 drive_X.png\
@@ -73,5 +78,12 @@ All colors take 6 character hex codes (without the \#) unless otherwise stated. 
 Up to 4 drives can be monitored at the same time. They do not have to be different drives (see bellow). Specify the number of drives to be monitored via _number_of_drives_ in _settings.lua_.
 
 Inside _settings.lua_ specify the name of the drive (in _drive_name_ 1 through 4) as reported by _lsblk_ (e.g. _nvme0n1_, _sda_ etc.) or similar tools and the folder path where the drive is mounted (such as '/' or '/mnt/data/' etc.)/
+**NOTE**: Drive name can change in machines every boot. To avoid that, you can use partuuid or label (if available) for a more stable behaviour on reboot.\
 The _drive_name_ dictates the drive to be monitored for reads & writes, while _drive_path_ selects the folder to be monitored for used & total space.\
 If you want two different folders of the same drive to be monitored for space, set the _drive_name_2_ (or 3/4) to the same name as _drive_name_1_, and specify the desired secondary folder to be monitored as _drive_path\_[2]_ (or 3/4).
+
+### 5. Battery
+Battery monitoring can be toggled via _display_battery_info_ in _settings.lua_. It is turned on ('1') by default. To turn it off, change _display_battery_info_ to any other value.
+
+Battery name is required for proper monitoring. See the comments in _settings.lua_ for more details.\
+**NOTE**: A battery with "unknown" status will show as "Stand-by". If you have a max charge percentage set in your system, the battery status will be "unknown" once the max charge level is reached, and will show as "Stand-by".
