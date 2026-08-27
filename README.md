@@ -61,7 +61,7 @@ drive_X.png\
 Where X can be any number from 3 to infinity.\
 To switch to your custom icon set, change _ icon_var_ inside _settings.lua_ to the number you chose to replace X.
 If the custom icons have any size other than **40 * 40 px**, change the _icon_width_ and _icon_height_ inside _settings.lua_ to match your icons. All icons in a set must have the same size. You can find the original SVG used to create the icons inside _master_icons_. You can use those if you just want a simple color change of the icons.\
-This theme is set up to change the icons displayed based on thresholds (except for drives) found in _settings.lua_. To disable that, change the threshold to "101".\
+This theme is set up to change the icons displayed based on thresholds (except for drives) found in _settings.lua_. To disable that, change the threshold to "101" (except for battery, which should be changed to "0").\
 
 ### 3. Colors
 The color of all of the elements can be changed from the _settings.lua_ file\
