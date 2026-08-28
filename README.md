@@ -9,7 +9,7 @@ Instal _conky_ and _lm_sensors_. After installing those, download the _conky_ fo
 Inside the _conky_ folder you can find a _start_conky.sh_ file. Running that will launch a ConkyMain window with background blur enabled (if system theme has it).
 Alternatively run _conky -c ~/.config/conky/conky.conf_ to prevent any blur effects.\
 **NOTE**: some sensor names will differ from system to system. See "Configure it" section for how to remedy that.
-\
+
 ### 2. Automatic
 To enable automatic Conky launch at start-up/login, set _restart_conky.sh_ to autostart in your preferred way.\
 **NOTE**: On KDE Plasma, the session restore setting duplicates Conky windows upon restart/restore. The _restart_conky.sh_ kills all existing Conky processes and launches a new one to fix this bug. If you have any other Conky processes running, they will have to be restarted after _restart_conky.sh_ runs.
@@ -87,3 +87,6 @@ Battery monitoring can be toggled via _display_battery_info_ in _settings.lua_. 
 
 Battery name is required for proper monitoring. See the comments in _settings.lua_ for more details.\
 **NOTE**: A battery with "unknown" status will show as "Stand-by". If you have a max charge percentage set in your system, the battery status will be "unknown" once the max charge level is reached, and will show as "Stand-by".
+
+### Gallery
+![Example setup using the latest version with battery support](https://github.com/EdyMarin0/Superconfig_conky/blob/main/Screenshots/Setup%20with%20battery%20monitoring%20enabled.png)
