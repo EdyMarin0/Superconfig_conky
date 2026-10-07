@@ -2,8 +2,15 @@
 A custom Conky configuration that is very easy to configure to your liking
 
 # Set-up
-Instal _conky_ and _lm_sensors_. After installing those, download the _conky_ folder from this project or extract it from the latest release and drop it in your _~/.config/_ folder.
 Current release is intended to work with _conky_ 1.24.2.
+1. Instal _conky_ and _lm_sensors_.
+2. Download the _conky_ folder from this project or extract it from the latest release and drop it in your _~/.config/_ folder.
+3. Set up the python environment used for some scripts by running the following commands:
+```bash
+   python3 -m venv ~/.config/conky/scripts/venv
+~/.config/conky/scripts/venv/bin/pip install freetype-py
+```
+
 ## Running it
 ### 1. Manual
 Inside the _conky_ folder you can find a _start_conky.sh_ file. Running that will launch a ConkyMain window with background blur enabled (if system theme has it).
