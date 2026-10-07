@@ -2,7 +2,7 @@
 --
 -- Superconfig_conky Settings
 --
--- Version: 1.1
+-- Version: 1.2.1
 --
 -- Creator: Edy Marin
 --
@@ -11,6 +11,7 @@
 local cfg = {
     -- placement
     monitor = 1, -- ID of the monitor on which to be displayed
+    monitor_dpi = 96, -- fallback value if the automated DPI calculator fails
 
     -- refresh rates
     main_update_interval = 1, -- update interval of the main window and all elements within
@@ -75,8 +76,7 @@ local cfg = {
     window_border_distance = 10, -- distance between elements and window edge
 
     -- Conky window colors
-    window_transparency = 120, -- Valid range: 0 (transparent) - 255 (opaque)
-    window_color = '1D1D1D', -- window background color
+    window_color = '801D1D1D', -- window background color, including alpha value at the start
 
     -- Conky elemts colour
     main_color = '00ffcc',
@@ -84,11 +84,11 @@ local cfg = {
     accent_color_2 = '009c78',
     low_color = '009779', -- color used for low values on conky graphs
     high_color = '00ffcc', -- color used for high values on conky graphs
-    text_colour = 'ffffff',
+    text_color = 'ffffff',
 
     -- Conky fonts
-    font = 'Noto Sans:size=10',
-    line_height = 19, -- height in px of one line of text for a given fornt name and size. You have to find it yourself. Important for icon arrangement
+    font_name = 'Noto Sans', -- font family name to be used
+    font_size = 10, -- font size to be used
 
     -- Conky elements
     horizontal_line_thickness = 3, -- horizontal separator line thickness
@@ -108,33 +108,5 @@ local cfg = {
     -- Battery percent graph
     battery_graph_height = 20, -- Height of the battery percent bar. Shoul not excede icon height
 }
--- Conky graph sizing
-cfg.graph_width = cfg.window_width - cfg.icon_width - cfg.icon_gap
-cfg.graph_height = cfg.icon_height
-cfg.graph_half_height = cfg.icon_height//2
-cfg.graph_half_width = (cfg.graph_width - cfg.graph_gap)//2
-cfg.graph_offset = -(cfg.line_height/2)
 
--- Lua position
-cfg.graph_position = cfg.icon_height + 4*cfg.line_height + cfg.graph_offset + cfg.horizontal_line_offset
-cfg.battery_graph_position_x = cfg.window_border_distance + cfg.icon_width + cfg.icon_gap
-cfg.battery_graph_position_y = 4*cfg.icon_height + 22*cfg.line_height + cfg.bar_height + 4*cfg.graph_offset + 5*cfg.horizontal_line_offset + cfg.number_of_drives*(5*cfg.line_height + cfg.icon_height + cfg.graph_offset + cfg.horizontal_line_offset) + cfg.window_border_distance + (cfg.icon_height - cfg.battery_graph_height)//2
-
--- Lua graph colours conversion
-local colors = require 'scripts.colors'
-cfg.graph_rgb = colors.hex_to_rgb(cfg.graph_color,cfg.graph_alpha)
-cfg.graph_background_rgb = colors.hex_to_rgb(cfg.graph_background,cfg.graph_background_alpha)
-
--- Icon positions
--- add one extra cfg.line_height for every text line in a section to every section following the one modified
-cfg.ram_icon_y = cfg.icon_height + 4*cfg.line_height + cfg.bar_height + cfg.graph_offset + cfg.horizontal_line_offset
-cfg.gpu_icon_y = 2*cfg.icon_height + 8*cfg.line_height + cfg.bar_height + 2*cfg.graph_offset + 2*cfg.horizontal_line_offset
-cfg.temp_icon_y = 3*cfg.icon_height + 13*cfg.line_height + cfg.bar_height + 3*cfg.graph_offset + 3*cfg.horizontal_line_offset
-cfg.drive_icon_y = {
-    [1] = 4*cfg.icon_height + 22*cfg.line_height + cfg.bar_height + 4*cfg.graph_offset + 5*cfg.horizontal_line_offset,
-    [2] = 5*cfg.icon_height + 27*cfg.line_height + cfg.bar_height + 5*cfg.graph_offset + 6*cfg.horizontal_line_offset,
-    [3] = 6*cfg.icon_height + 32*cfg.line_height + cfg.bar_height + 6*cfg.graph_offset + 7*cfg.horizontal_line_offset,
-    [4] = 7*cfg.icon_height + 37*cfg.line_height + cfg.bar_height + 7*cfg.graph_offset + 8*cfg.horizontal_line_offset,
-}
-cfg.battery_icon_y = 4*cfg.icon_height + 22*cfg.line_height + cfg.bar_height + 4*cfg.graph_offset + 5*cfg.horizontal_line_offset + cfg.number_of_drives*(5*cfg.line_height + cfg.icon_height + cfg.graph_offset + cfg.horizontal_line_offset)
 return cfg
