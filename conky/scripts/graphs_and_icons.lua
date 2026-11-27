@@ -15,9 +15,6 @@ local battery_graph_width = param.graph_width
 function conky_graphs_and_icons()
 if conky_window == nil then return end
 
---    local cs = cairo_xlib_surface_create(conky_window.display,
---                                         conky_window.drawable, conky_window.visual,
---                                         conky_window.width, conky_window.height)
     local cs = conky_surface()
     if not cs then return end
     local cr = cairo_create(cs)
