@@ -2,7 +2,8 @@
 A custom Conky configuration that is very easy to configure to your liking
 
 # Set-up
-Current release is intended to work with _conky_ 1.24.2.
+Current release is intended to work with _conky_ 1.25.2-pre-6caddca3.
+KNOWN ISSUE: Wayland is now the default, but broken in the 1.25.2-pre-6caddca3 version. X11 is selected as the backend.
 1. Instal _conky_ and _lm_sensors_.
 2. Download the _conky_ folder from this project or extract it from the latest release and drop it in your _~/.config/_ folder.
 3. Set up the python environment used for some scripts by running the following commands:
